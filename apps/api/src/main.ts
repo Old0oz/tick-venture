@@ -5,11 +5,21 @@
 
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-
 import { AppModule } from './app/app.module';
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  /* const options = new DocumentBuilder()
+    .setTitle('Lead API')
+    .setDescription('The lead API description')
+    .setVersion('1.0')
+    .addTag('lead')
+    .setBasePath('api')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('swagger', app, document); */
+
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3333;
